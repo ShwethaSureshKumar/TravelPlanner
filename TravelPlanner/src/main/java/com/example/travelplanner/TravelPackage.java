@@ -15,6 +15,8 @@ public class TravelPackage {
     private String packageImages;
     private double averageRating;
     private String ratingsReviews;
+    private String contactEmail;
+    private String contactPhone;
 
     // Constructors
     public TravelPackage() {
@@ -33,9 +35,11 @@ public class TravelPackage {
         this.packageImages = "";
         this.averageRating = 0;
         this.ratingsReviews = "";
+        this.contactEmail = "";
+        this.contactPhone = "";
     }
 
-    public TravelPackage(int packageId, String packageName, String packageDescription, String destination, int duration, double price, String inclusions, String exclusions, String startDate, String endDate, int availableSeats, String packageImages, double averageRating, String ratingsReviews) {
+    public TravelPackage(int packageId, String packageName, String packageDescription, String destination, int duration, double price, String inclusions, String exclusions, String startDate, String endDate, int availableSeats, String packageImages, double averageRating, String ratingsReviews, String contactEmail, String contactPhone) {
         this.packageId = packageId;
         this.packageName = packageName;
         this.packageDescription = packageDescription;
@@ -50,6 +54,8 @@ public class TravelPackage {
         this.packageImages = packageImages;
         this.averageRating = averageRating;
         this.ratingsReviews = ratingsReviews;
+        this.contactEmail = contactEmail;
+        this.contactPhone = contactPhone;
     }
 
     // Getters and Setters
@@ -159,6 +165,22 @@ public class TravelPackage {
 
     public void setRatingsReviews(String ratingsReviews) {
         this.ratingsReviews = ratingsReviews;
+    }
+
+    public String getContactEmail() {
+        return contactEmail;
+    }
+
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
+    }
+
+    public String getContactPhone() {
+        return contactPhone;
+    }
+
+    public void setContactPhone(String contactPhone) {
+        this.contactPhone = contactPhone;
     }
 }
 
