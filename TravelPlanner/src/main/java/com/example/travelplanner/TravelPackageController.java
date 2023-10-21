@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.GridPane;
 
@@ -41,10 +42,11 @@ public class TravelPackageController implements Initializable{
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("TravelPackageBox.fxml"));
                 Parent box = loader.load();
                 TravelPackageBoxController controller = loader.getController();
+                controller.setPackageId(p.getPackageId());
                 controller.setPackageData(p);
                 packageGrid.add(box, col, row);
                 col++;
-                // If we've reached the last column, move to the next row
+
                 if (col >= maxColumns) {
                     col = 0;
                     row++;
@@ -67,7 +69,7 @@ public class TravelPackageController implements Initializable{
 
     private List<TravelPackage> loadPackagesFromDatabase() {
         List<TravelPackage> packages = new ArrayList<>();
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/travel_planner", "root", "Hp@300703")) {
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/travel_planner", "root", "35@Nethranagar")) {
             String query = "SELECT * FROM package";
             try (PreparedStatement statement = connection.prepareStatement(query);
                  ResultSet resultSet = statement.executeQuery()) {
@@ -88,6 +90,8 @@ public class TravelPackageController implements Initializable{
                     tripPackages.setPackageImages(resultSet.getString("package_images"));
                     tripPackages.setAverageRating(resultSet.getDouble("average_rating"));
                     tripPackages.setRatingsReviews(resultSet.getString("ratings_and_reviews"));
+                    tripPackages.setContactEmail(resultSet.getString("contactEmail"));
+                    tripPackages.setContactPhone(resultSet.getString("contactPhone"));
                     packages.add(tripPackages);
                 }
             }

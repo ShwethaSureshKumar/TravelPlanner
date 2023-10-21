@@ -6,6 +6,8 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
+<?import javafx.event.EventHandler?>
+<?import javafx.geometry.Insets?>
 <VBox prefHeight="494.0" prefWidth="430.0" spacing="10" style="-fx-border-color: black; -fx-border-width: 1;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.travelplanner.TravelPackageBoxController">
     <VBox id="packageBox" fx:id="packageBox" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="500.0" prefWidth="349.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2px; -fx-padding: 10px;">
         <HBox prefHeight="22.0" prefWidth="212.0" spacing="10">
@@ -111,5 +113,68 @@
 
         <ImageView fx:id="packageImage" fitHeight="182.0" fitWidth="407.0" />
 
+        <HBox prefHeight="32.0" prefWidth="405.0">
+            <Button onAction="#addToCart" style="-fx-background-color: transparent; -fx-border-width: 0;">
+                <graphic>
+                    <ImageView>
+                        <image>
+                            <Image url="/com/example/travelplanner/cart.png" />
+                        </image>
+                        <fitWidth>40.0</fitWidth>
+                        <fitHeight>40.0</fitHeight>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button onAction="#removeFromCart" id="removeFromCartButton" fx:id="removeFromCartButton" visible="false" style="-fx-background-color: transparent; -fx-border-width: 0;">
+                <graphic>
+                    <ImageView>
+                        <image>
+                            <Image url="/com/example/travelplanner/delete.png" />
+                        </image>
+                        <fitWidth>40.0</fitWidth>
+                        <fitHeight>40.0</fitHeight>
+                    </ImageView>
+                </graphic>
+            </Button>
+        </HBox>
+        <HBox>
+            <Label prefHeight="15.0" prefWidth="95.0" text="Rating: ">
+                <font>
+                    <Font name="Georgia Bold" size="12.0" />
+                </font></Label>
+            <Label fx:id="starRating" />
+        </HBox>
+        <HBox>
+            <StackPane>
+                <padding>
+                    <Insets top="8" right="20" bottom="10" left="20" />
+                </padding>
+                <ImageView>
+                    <image>
+                        <Image url="/com/example/travelplanner/envelope.png" />
+                    </image>
+                    <fitWidth>28.0</fitWidth>
+                    <fitHeight>28.0</fitHeight>
+                </ImageView>
+            </StackPane>
+            <Label fx:id="contactEmail" prefHeight="34.0" prefWidth="312.0" text="Static Text" textFill="blue">
+                <font><Font name="Georgia" /></font></Label>
+        </HBox>
+        <HBox>
+            <StackPane>
+                <padding>
+                    <Insets top="8" right="20" bottom="10" left="20" />
+                </padding>
+                <ImageView>
+                    <image>
+                        <Image url="/com/example/travelplanner/phone.png" />
+                    </image>
+                    <fitWidth>28.0</fitWidth>
+                    <fitHeight>28.0</fitHeight>
+                </ImageView>
+            </StackPane>
+            <Label fx:id="contactPhone" prefHeight="34.0" prefWidth="312.0" text="Static Text" textFill="blue">
+                <font><Font name="Georgia" /></font></Label>
+        </HBox>
     </VBox>
 </VBox>
