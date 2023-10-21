@@ -44,7 +44,7 @@ public class DBUtils {
         ResultSet resultset = null;
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/travel_planner","root","35@Nethranagar");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/travel_planner","root","Hp@300703");
             psCheckUserExists = connection.prepareStatement("SELECT * FROM user WHERE username=?");
             psCheckUserExists.setString(1, username);
             resultset = psCheckUserExists.executeQuery();
@@ -58,7 +58,7 @@ public class DBUtils {
                 psInsert.setString(1, username);
                 psInsert.setString(2, password);
                 psInsert.executeUpdate();
-                changeScene(event, "Login.fxml","Welcome!",username);
+                changeScene(event, "Dashboard.fxml","Welcome!",username);
             }
         }catch(SQLException e){
             e.printStackTrace();
@@ -101,7 +101,7 @@ public class DBUtils {
         PreparedStatement preparedStatement = null;
         ResultSet resultset = null;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/travel_planner", "root", "35@Nethranagar");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/travel_planner", "root", "Hp@300703");
             preparedStatement = connection.prepareStatement("SELECT password FROM user WHERE username=?");
             preparedStatement.setString(1, username);
             resultset = preparedStatement.executeQuery();
@@ -114,7 +114,7 @@ public class DBUtils {
                 while(resultset.next()){
                     String retrievedPassword = resultset.getString("password");
                     if(retrievedPassword.equals(password)){
-                        changeScene(event, "Login.fxml","welcome",username);
+                        changeScene(event, "Dashboard.fxml","welcome",username);
                     }else{
                         System.out.println("Passwords did not match.");
                         Alert alert = new Alert(Alert.AlertType.ERROR);
